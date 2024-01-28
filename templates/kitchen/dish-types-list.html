@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if dish_type_list %}
+  	<ul>
+    {% for dish_type in dish_type_list %}
+  		<li>{{ dish_type.id }} {{ dish_type.name }}</li>
+  	{% endfor %}
+  	</ul>
+  {% endif %}
+{% endblock %}

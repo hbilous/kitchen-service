@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="">Cookers list</h1>
+  <a href="{% url 'kitchen:cook-create' %}">
+    <input class="btn btn-primary link-to-page" type="button" value="Create">
+  </a>
+  {% for cook in cook_list %}
+    <p class="">
+      <a class="text-decoration-none" href="{% url 'kitchen:cook-detail' pk=cook.id %}">
+        {{ cook.first_name }} {{ cook.last_name }}, {{ cook.username }} {{ cook.email }}
+      </a>
+    </p>
+    <a class="" href="{% url 'kitchen:cook-update' pk=cook.id %}">
+      <input class="btn btn-primary" type="button" value="Update">
+    </a>
+  {% endfor %}
+
+{% endblock %}

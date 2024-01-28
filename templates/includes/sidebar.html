@@ -1,0 +1,13 @@
+<ul class="sidebar">
+  {% if user.is_authenticated %}
+    <li><p>Hello, {{ user.username }}</p></li>
+    <li><a href="{% url 'logout' %}">Log out!</a></li>
+  {% else %}
+    <li><a href="{% url 'login' %}">Log in</a></li>
+  {% endif %}
+  <br>
+  <li><a href="{% url 'kitchen:index' %}">Home</a></li>
+  <li><a href="{% url 'kitchen:cook-list' %}">Cook list</a></li>
+  <li><a href="{% url 'kitchen:dish-type-list' %}">Dish type list</a></li>
+  <li><a href="{% url 'kitchen:dish-list' %}">Dish list</a></li>
+</ul>

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure want to delete dish type {{ dishtype.name }}? All dishes with this type will be also deleted</p>
+    <input type="submit" value="yes, delete">
+  </form>
+{% endblock %}

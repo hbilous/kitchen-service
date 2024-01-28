@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <a href="{% url 'kitchen:dish-create' %}"><input type="button" value="Create"></a>
+  {% if dish_list %}
+    {% for dish in dish_list %}
+      <p>Name: {{ dish.name }} --- {{ dish.dish_type }} --- Price: {{ dish.price }};</p>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

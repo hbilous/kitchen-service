@@ -1,0 +1,36 @@
+body {
+    margin: 20px;
+}
+
+.sidebar-style ul{
+    padding: 10px 0 10px 20px;
+    border: chocolate 5px solid;
+    background: lightgreen;
+    font-size: 20px;
+    list-style-type: none;
+}
+
+.sidebar-style p {
+    color: brown;
+    font-style: oblique;
+}
+
+.sidebar-style a {
+    text-decoration: none;
+    color: brown;
+}
+
+.content-style {
+    padding: 20px 20px 20px 50px;
+    border: 5px solid blue;
+    font-size: 20px;
+
+}
+
+.edit-link {
+    display: flex;
+}
+
+.edit-btn {
+    display: flex;
+}
