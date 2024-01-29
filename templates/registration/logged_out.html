@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>You are logged out!</h1>
-  <br>
-  <a href="{% url 'login' %}">Click here to log in again</a>
+  <div class="container">
+    <h1>Are you sure you want to delete a cook {{ cook.first_name }} {{ cook.last_name }}?<br>
+      All dishes created by {{ cook.first_name }} will be also deleted.</h1>
+    <br>
+    <br>
+    <br>
+      <div class="col-md-6">
+        <a href="{% url 'login' %}" class="btn btn-lg btn-outline-light">Log in again</a>
+      </div>
 {% endblock %}

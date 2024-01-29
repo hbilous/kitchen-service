@@ -1,8 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-  <h1>General information about our kitchen</h1>
-  <p>Number of cookers: {{ num_cookers }}</p>
-  <p>Number of dish types: {{ num_dish_types }}</p>
-  <p>Number of dishes in menu: {{ num_dish }}</p>
+  <div class="container">
+    <h1>General information about our kitchen</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, voluptatum?<br>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, libero.</p>
+    <br>
+    <br>
+    <div class="flex-container">
+      <div>
+        <h3>{{ num_cookers }}</h3>
+        <h5>Number of cooks</h5>
+        <hr class="border-light">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, placeat.</p>
+      </div>
+      <div>
+        <h3>{{ num_dish_types }}</h3>
+        <h5>Dish types</h5>
+        <hr class="border-light">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga.</p>
+      </div>
+      <div>
+        <h3>{{ num_dish }}</h3>
+        <h5>Dishes in menu</h5>
+        <hr class="border-light">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, ut.</p>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
 
