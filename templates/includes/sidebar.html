@@ -1,0 +1,20 @@
+{% load static %}
+<a href="{% url 'kitchen:index' %}"><img src="{% static 'img/kitchen_logo.png' %}" alt="Kitchen logo"></a>
+<ul class="nav-border-bot">
+  {% if user.is_authenticated %}
+    <p>Hello, <a href="{% url 'kitchen:cook-detail' pk=user.id %}">{{ user.username }}</a></p>
+    <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+      {% csrf_token %}
+      <input class="btn btn-outline-light" type="submit" value="Log out">
+    </form>
+  {% else %}
+    <a href="{% url 'login' %}">Log in</a>
+  {% endif %}
+</ul>
+<br>
+<ul>
+  <li><a href="{% url 'kitchen:index' %}">Home</a></li>
+  <li><a href="{% url 'kitchen:cook-list' %}">Cook list</a></li>
+  <li><a href="{% url 'kitchen:dish-type-list' %}">Dish type list</a></li>
+  <li><a href="{% url 'kitchen:dish-list' %}">Dish list</a></li>
+</ul>

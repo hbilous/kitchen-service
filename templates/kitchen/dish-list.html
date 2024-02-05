@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+  <table class="cook-list">
+    <form class="form-inline" action="" method="get">
+      <td>
+        {{ search_form|crispy }}
+      </td>
+      <td>
+        <input class="btn btn-outline-light" type="submit" value="Search">
+      </td>
+    </form>
+    <tr style="border: #5D6D7E 3px solid">
+      <th style="border: #5D6D7E 3px solid">Name</th>
+      <th style="border: #5D6D7E 3px solid">Dish type</th>
+      <th style="border: #5D6D7E 3px solid">Price</th>
+      <th style="border: #5D6D7E 3px solid">Cook</th>
+      <th><a href="{% url 'kitchen:dish-create' %}"><span class="btn btn-outline-light">Create</span></a></th>
+    </tr>
+    {% for dish in dish_list %}
+      <tr style="border: #5D6D7E 3px solid">
+        <td style="border: #5D6D7E 3px solid"><a href="{% url 'kitchen:dish-detail' dish.id%}">{{ dish.name }}</a></td>
+        <td style="border: #5D6D7E 3px solid"><a href="{% url 'kitchen:dish-type-list' %}">{{ dish.dish_type }}</a></td>
+        <td style="border: #5D6D7E 3px solid">{{ dish.price }}</td>
+        <td style="border: #5D6D7E 3px solid">{% for cook in dish.cooks.all %}
+          <a href="{% url 'kitchen:cook-detail' pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a><br>
+        {% endfor %}
+        </td>
+        <td>
+          <a href="{% url 'kitchen:dish-update' pk=dish.id %}"><span class="btn btn-outline-light">Update</span></a>
+          <a href="{% url 'kitchen:dish-delete' pk=dish.id %}"><span class="btn btn-outline-danger">Delete</span></a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

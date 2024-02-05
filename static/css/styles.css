@@ -1,0 +1,137 @@
+body {
+    background-color: black;
+}
+
+aside {
+    float: left;
+    background-color: #34495E;
+    height: 100vh;
+    width: 20%;
+    padding: 3%;
+    border-right: #5D6D7E 10px solid;
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+aside img {
+    width: 220px;
+    margin-left: -25px;
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+
+aside a {
+    color: white;
+    text-decoration: none;
+}
+
+aside a:hover {
+    color: white;
+    transform: scale(1.1);
+    transition: transform 0.6s ease;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li a {
+    font-size: 25px;
+    color: white;
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+aside ul li:hover {
+    color: white;
+    transform: scale(1.1);
+    transition: transform 0.6s ease;
+}
+
+main {
+    float: right;
+    width: 80%;
+    text-align: center;
+}
+
+.container {
+    color: white;
+    margin-top: 200px;
+}
+
+.flex-container {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container div {
+    margin-right: 50px;
+}
+
+table {
+    margin-left: 100px;
+}
+
+table, table a {
+    color: white;
+    text-decoration: none;
+    width: 80%;
+}
+
+table a:hover {
+    color: #5D6D7E;
+}
+
+th {
+    background-color: black;
+    padding: 10px 20px;
+}
+
+
+td {
+    background-color: black;
+    padding: 10px 20px;
+}
+
+.cook-list {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-form {
+    margin-left: 100px;
+    width: 300px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.log-in-button {
+    width: 50%;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+  text-align: center;
+}
+
+input[type="password"] {
+  text-align: center;
+}
+
+.dish-type-text {
+    color: white;
+}
+
+.custom-scroll {
+  max-height: 286px;
+  overflow-y: auto;
+}
+

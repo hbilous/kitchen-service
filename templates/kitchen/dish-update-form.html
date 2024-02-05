@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="log-in-form">
+        <form action="{% url 'kitchen:dish-update' pk=dish.id %}" method="post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="center-input form-group ">
+                {{ form.name|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.price|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.dish_type|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.description|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group custom-scroll">
+                {{ form.cooks|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-12 text-center">
+              <input type="submit"
+                     class="btn btn-outline-light log-in-button"
+                     value="{{ object|yesno:"Update,Create" }} Cook">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
