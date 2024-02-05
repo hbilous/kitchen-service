@@ -1,10 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import CookCreationForm, DishCreationForm, CookUpdateForm
+from kitchen.forms import CookCreationForm, DishCreationForm, CookUpdateForm, DishUpdateForm, DishSearchForm
 from kitchen.models import Cook, DishType, Dish
 
 
@@ -29,7 +29,6 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
-    form_class = CookCreationForm
     template_name = "kitchen/cook-detail.html"
 
 
@@ -43,8 +42,8 @@ class CookCreateView(generic.CreateView):
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
     form_class = CookUpdateForm
-    success_url = reverse_lazy("kitchen:cook-list")
     template_name = "kitchen/cook-update-form.html"
+    success_url = reverse_lazy("kitchen:cook-list")
 
 
 class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -89,7 +88,22 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     context_object_name = "dish_list"
     template_name = "kitchen/dish-list.html"
-    paginate_by = 10
+    paginate_by = 7
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(DishListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+        context["search_form"] = DishSearchForm(
+            initial={"name": name}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = self.model.objects.all()
+        form = DishSearchForm(self.request.GET)
+        if form.is_valid():
+            queryset = queryset.filter(name__icontains=form.cleaned_data["name"])
+        return queryset
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
@@ -106,8 +120,8 @@ class DishCreateView(LoginRequiredMixin, generic.CreateView):
 
 class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
-    form_class = DishCreationForm
-    template_name = "kitchen/dish-form.html"
+    form_class = DishUpdateForm
+    template_name = "kitchen/dish-update-form.html"
     success_url = reverse_lazy("kitchen:dish-list")
 
 

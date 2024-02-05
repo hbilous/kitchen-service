@@ -8,7 +8,6 @@ aside {
     height: 100vh;
     width: 20%;
     padding: 3%;
-    /*border-right:  10px solid;*/
     border-right: #5D6D7E 10px solid;
     color: white;
     text-decoration: none;
@@ -98,7 +97,7 @@ td {
 }
 
 .cook-list {
-    height: 100vh;
+    height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,9 +119,19 @@ td {
 }
 
 input[type="text"] {
-  text-align: center; /* Застосує центрування до всіх полів вводу тексту */
+  text-align: center;
 }
 
 input[type="password"] {
-  text-align: center; /* Застосує центрування до всіх полів вводу тексту */
+  text-align: center;
 }
+
+.dish-type-text {
+    color: white;
+}
+
+.custom-scroll {
+  max-height: 286px;
+  overflow-y: auto;
+}
+

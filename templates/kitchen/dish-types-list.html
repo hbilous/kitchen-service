@@ -1,11 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% if dish_type_list %}
-  	<ul>
-    {% for dish_type in dish_type_list %}
-  		<li>{{ dish_type.id }} {{ dish_type.name }}</li>
-  	{% endfor %}
-  	</ul>
-  {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h5>Dish types:</h5>
+        <table style="border: #5D6D7E 3px solid">
+          <tr>
+            <th style="border: #5D6D7E 3px solid">
+              Name
+            </th>
+            <th style="border: #5D6D7E 3px solid">
+              <a href="{% url 'kitchen:dish-type-create' %}"><span class="btn btn-outline-light">Create</span></a>
+            </th>
+          </tr>
+          {% for dish_type in dish_type_list %}
+            <tr style="border: #5D6D7E 3px solid">
+              <td style="border: #5D6D7E 3px solid">
+                {{ dish_type.name }}
+              </td>
+              <td>
+                <a href="{% url 'kitchen:dish-type-update' dish_type.id %}"><span
+                    class="btn btn-outline-light">Update</span></a>
+                <a href="{% url 'kitchen:dish-type-delete' dish_type.id %}"><span
+                    class="btn btn-outline-danger">Delete</span></a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+
+
 {% endblock %}

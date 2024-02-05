@@ -2,7 +2,7 @@
 <a href="{% url 'kitchen:index' %}"><img src="{% static 'img/kitchen_logo.png' %}" alt="Kitchen logo"></a>
 <ul class="nav-border-bot">
   {% if user.is_authenticated %}
-    <p>Hello, {{ user.username }}</p>
+    <p>Hello, <a href="{% url 'kitchen:cook-detail' pk=user.id %}">{{ user.username }}</a></p>
     <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
       {% csrf_token %}
       <input class="btn btn-outline-light" type="submit" value="Log out">

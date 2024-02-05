@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="container">
 	<h1>{{ cook.first_name }} {{ cook.last_name }}</h1>
-  <p>Username: {{ cook.username }}</p>
-  <p>E-mail: {{ cook.email }}</p>
-  <p>Years of experience: {{ cook.years_of_experience }}</p>
+  <h3>Username: {{ cook.username }}</h3>
+  <h3>E-mail: {{ cook.email }}</h3>
+  <h3>Years of experience: {{ cook.years_of_experience }}</h3>
+  </div>
+  <br>
+  <br>
+  <br>
+  <a href="{% url 'kitchen:cook-list' %}"><span class="btn btn-outline-light">Back to the list</span></a>
 {% endblock %}

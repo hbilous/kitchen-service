@@ -1,5 +1,21 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 
 {% block content %}
-	<h1>{{ dish.name }}</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h1>{{ dish.name }}</h1>
+        <h5>Dish type: {{ dish.dish_type }}</h5>
+        <h6>Price: {{ dish.price }}</h6>
+        <h6>Cooks:</h6>
+        {% for cooks in dish.cooks.all %}
+          <p>{{ cooks.first_name }} {{ cooks.last_name }}</p>
+        {% endfor %}
+        <p>{{ dish.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <a href="{% url 'kitchen:dish-list' %}"><span class="btn btn-outline-light">Back to the dish list</span></a>
+        </div>
 {% endblock %}

@@ -11,18 +11,21 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <aside>
-      {% block sidebar %}
-        {% include "includes/sidebar.html" %}
-      {% endblock %}
-    </aside>
-    <main>
-      {% block content %}
-      {% endblock %}
-    </main>
-    <footer>
-      {% block footer %}
-      {% endblock %}
-    </footer>
+<aside>
+  {% block sidebar %}
+    {% include "includes/sidebar.html" %}
+  {% endblock %}
+</aside>
+<main>
+  {% block content %}
+  {% endblock %}
+  {% block pagination %}
+    {% include "includes/pagination.html" %}
+  {% endblock %}
+</main>
+<footer>
+  {% block footer %}
+  {% endblock %}
+</footer>
 </body>
 </html>

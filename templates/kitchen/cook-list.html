@@ -19,22 +19,23 @@
         Years of experience
       </th>
       <th style="background-color: black">
-      </th>
-      <th style="background-color: black">
         <a href="{% url 'kitchen:cook-create' %}"><span class="btn btn-outline-light">Create</span></a>
       </th>
     </tr>
     {% for cook in cook_list %}
       <tr style="border: #5D6D7E 3px solid">
-        <td>{{ cook.first_name }}</td>
-        <td>{{ cook.last_name }}</td>
-        <td>{{ cook.username }}</td>
-        <td>{{ cook.email }}</td>
-        <td style="border-right: #5D6D7E 3px solid">{{ cook.years_of_experience }}</td>
-        <td style="background-color: black"><a href="{% url 'kitchen:cook-update' pk=cook.id %}"><span
-            class="btn btn-outline-light">Update</span></a></td>
-        <td style="background-color: black"><a href="{% url 'kitchen:cook-delete' pk=cook.id %}"><span
-            class="btn btn-outline-danger">Delete</span></a></td>
+        <td><a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.first_name }}</a></td>
+        <td><a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.last_name }}</a></td>
+        <td><a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.username }}</a></td>
+        <td><a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.email }}</a></td>
+        <td style="border-right: #5D6D7E 3px solid"><a
+            href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.years_of_experience }}</a></td>
+        <td style="background-color: black">
+          <a href="{% url 'kitchen:cook-update' pk=cook.id %}"><span
+              class="btn btn-outline-light">Update</span></a>
+          <a href="{% url 'kitchen:cook-delete' pk=cook.id %}"><span
+            class="btn btn-outline-danger">Delete</span></a>
+        </td>
       </tr>
     {% endfor %}
 
