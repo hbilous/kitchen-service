@@ -18,17 +18,6 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-## Developing
-
-Here's a brief intro about what a developer must do in order to start developing
-the project further:
-
-```shell
-git clone https://github.com/your/awesome-project.git
-cd awesome-project/
-packagemanager install
-```
-
 ## Features
 
 * You can see how much cooks, dish types and dishes you have;
