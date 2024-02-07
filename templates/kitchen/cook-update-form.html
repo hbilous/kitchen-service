@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="log-in-form">
+        <form action="{% url 'kitchen:cook-update' pk=cook.id %}" method="post" novalidate>
+          {% csrf_token %}
+
+          <div class="row">
+
+            <div class="col-md-12">
+              <div class="center-input form-group ">
+                {{ form.username|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.email|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.years_of_experience|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.first_name|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.last_name|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-md-12 text-center">
+              <input type="submit"
+                     class="btn btn-outline-light log-in-button"
+                     value="{{ object|yesno:"Update,Create" }} Cook">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
